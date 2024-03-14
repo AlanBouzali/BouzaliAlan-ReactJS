@@ -1,4 +1,16 @@
-#root {
+#cart-widget{
+  color: #ffffff;
+  padding-left: 1rem;
+  font-weight: 900;
+}
+#cart-widget span{
+  margin-left: 5px;
+}
+#cart-widget img{
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(138deg) brightness(109%) contrast(102%);
+}
+
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -40,3 +52,4 @@
 .read-the-docs {
   color: #888;
 }
+ */
