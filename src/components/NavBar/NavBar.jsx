@@ -16,9 +16,5 @@ export const NavBar = () => {
           <CartWidget />
         </Container>
       </Navbar>
-/*     <>
-      
-      
-    </> */
   );
 };
