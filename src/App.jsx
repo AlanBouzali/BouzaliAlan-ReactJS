@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <NavBar />
-      <ItemListContainer greeting={'Proximamente EcommersAlan! Esten atentos a las actualizaciones. Disculpe las molestias!'} />
+      <ItemListContainer greeting={'Proximamente Ecommerce Alanding! Esten atentos a las actualizaciones. Disculpe las molestias!'} />
     </>
   );
 }
