@@ -5,7 +5,7 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
   return (
     <article className={ClassItem.CardItem}>
       <header className="Header">
-        <h2 className="ItemHeader">{name}hola</h2>
+        <h2 className="ItemHeader">{name}No funciona</h2>
       </header>
       <picture>
         <img src={img} alt={name} className="ItemImg" />
@@ -18,6 +18,7 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
       <footer className="ItemFooter">
         <p className="Info">Stock disponible: {stock}</p>
         <ItemCount
+          id={id}
           initial={1}
           stock={stock}
           onAdd={(quantity) => console.log('Cantidad agregada ', quantity)}
