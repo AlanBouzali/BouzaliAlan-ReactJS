@@ -1,20 +1,25 @@
 import { useEffect, useState } from 'react';
 //import Container from 'react-bootstrap/Container';
-import { getProducts } from '../../asyncMock';
+import { getProductsByCategory, getProducts } from '../../asyncMock';
 import ItemList from '../ItemList/ItemList';
+import { useParams } from 'react-router-dom';
 
 export const ItemListContainer = ({ greeting }) => {
   const [products, setProducts] = useState([]);
 
+  const { categoryId } = useParams();
+
   useEffect(() => {
-    getProducts()
+    const asyncFunc = categoryId ? getProductsByCategory : getProducts;
+
+    asyncFunc(categoryId)
       .then((response) => {
         setProducts(response);
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
       });
-  }, []);
+  }, [categoryId]);
 
   return (
     <div>
@@ -22,6 +27,6 @@ export const ItemListContainer = ({ greeting }) => {
       <ItemList products={products} />
     </div>
   );
-}; //<Container className='mt-4'><h2>{greeting}</h2></Container>;
+};
 
 export default ItemListContainer;

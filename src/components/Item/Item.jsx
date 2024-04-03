@@ -1,7 +1,8 @@
 import ClassItem from './Item.module.css';
 import ItemCount from '../ItemCount/ItemCount';
+import { Link } from 'react-router-dom';
 
-const Item = ({ id, name, img, price, stock }) => {
+const Item = ({ id, name, img, price, description, stock }) => {
   return (
     <article className={ClassItem.CardItem}>
       <header className="Header">
@@ -12,16 +13,21 @@ const Item = ({ id, name, img, price, stock }) => {
       </picture>
       <section>
         <p className="Info">Precio: ${price}</p>
+        <p className="Info">Descripción: {description}</p>
         <p className="Info">Stock disponible: {stock}</p>
       </section>
-      <footer className="ItemFooter">
-        <button className="Option">Ver detalle</button>
+      <footer className={ClassItem.ItemFooter}>
+        <Link to={`/item/${id}`} className={ClassItem.ButtonDetail}>
+          Ver detalle
+        </Link>
       </footer>
-      <ItemCount
-        initial={1}
-        stock={25}
-        onAdd={(quantity) => console.log('Cantidad agregada ', quantity)}
-      />
+      {/* {
+        <ItemCount
+          initial={1}
+          stock={stock}
+          onAdd={(quantity) => console.log('Cantidad agregada ', quantity)}
+        />
+      } */}
     </article>
   );
 };

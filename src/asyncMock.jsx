@@ -5,7 +5,7 @@ const products = [
     price: '25000',
     category: 'iluminacion',
     img: '',
-    stock: 25,
+    stock: 23,
     description: '5m de tira de neon con fuente incluida.',
   },
   {
@@ -14,7 +14,7 @@ const products = [
     price: '15000',
     category: 'electricidad',
     img: '',
-    stock: 25,
+    stock: 15,
     description: 'Lampara dicro 5w smart rgb.',
   },
   {
@@ -23,7 +23,7 @@ const products = [
     price: '60000',
     category: 'construccion',
     img: '',
-    stock: 25,
+    stock: 200,
     description: 'Cable unipolar 2,5mm Argenplas.',
   },
   {
@@ -32,7 +32,7 @@ const products = [
     price: '3000',
     category: 'electricidad',
     img: '',
-    stock: 25,
+    stock: 19,
     description: 'Tecla y enchufe Jeluz Platinum.',
   },
 ];
@@ -41,6 +41,22 @@ export const getProducts = () => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(products);
-    }, 500);
+    }, 2000);
+  });
+};
+
+export const getProductById = (productId) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(products.find((prod) => prod.id === Number(productId)));
+    }, 2000);
+  });
+};
+
+export const getProductsByCategory = (productCategory) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(products.filter((prod) => prod.category === productCategory));
+    }, 2000);
   });
 };
