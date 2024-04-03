@@ -1,5 +1,4 @@
 import ClassItem from './Item.module.css';
-import ItemCount from '../ItemCount/ItemCount';
 import { Link } from 'react-router-dom';
 
 const Item = ({ id, name, img, price, description, stock }) => {
@@ -21,13 +20,6 @@ const Item = ({ id, name, img, price, description, stock }) => {
           Ver detalle
         </Link>
       </footer>
-      {/* {
-        <ItemCount
-          initial={1}
-          stock={stock}
-          onAdd={(quantity) => console.log('Cantidad agregada ', quantity)}
-        />
-      } */}
     </article>
   );
 };

@@ -4,7 +4,7 @@ const products = [
     name: 'Tira de neon',
     price: '25000',
     category: 'iluminacion',
-    img: '',
+    img: 'https://i.ibb.co/7b9P8LZ/neon-derecha.jpg',
     stock: 23,
     description: '5m de tira de neon con fuente incluida.',
   },
@@ -13,7 +13,7 @@ const products = [
     name: 'Dicroica Smart',
     price: '15000',
     category: 'electricidad',
-    img: '',
+    img: 'https://upload.wikimedia.org/wikipedia/commons/2/2a/Paulmann_GU10_345LM.JPG',
     stock: 15,
     description: 'Lampara dicro 5w smart rgb.',
   },
@@ -48,7 +48,7 @@ export const getProducts = () => {
 export const getProductById = (productId) => {
   return new Promise((resolve) => {
     setTimeout(() => {
-      resolve(products.find((prod) => prod.id === Number(productId)));
+      resolve(products.find((prod) => prod.id === productId));
     }, 2000);
   });
 };

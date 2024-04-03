@@ -1,11 +1,12 @@
-import ClassItem from '../Item/Item.module.css';
+//import ClassItem from '../Item/Item.module.css';
+import ClassItem from '../ItemDetail/Detail.module.css';
 import ItemCount from '../ItemCount/ItemCount.jsx';
 
 const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
   return (
     <article className={ClassItem.CardItem}>
       <header className="Header">
-        <h2 className="ItemHeader">{name}No funciona</h2>
+        <h2 className="ItemHeader">{name}</h2>
       </header>
       <picture>
         <img src={img} alt={name} className="ItemImg" />
