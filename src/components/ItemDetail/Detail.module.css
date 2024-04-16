@@ -1,22 +1,44 @@
 .CardItem {
   border: 2px solid black;
   border-radius: 5px;
-  margin: 5px;
+  margin: 15px;
   padding: 15px;
   background-color: rgba(128, 128, 128, 0.404);
   display: flex;
   flex-direction: column;
 }
 
-picture {
-  width: 350px;
-  height: 350px;
+.ContainerDetail {
+  display: flex;
+  flex-direction: row;
 }
 
-picture img {
+section {
+  width: 500px;
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  margin: 10px;
+  padding: 10px;
+}
+
+div picture {
+  width: 350px;
+  height: 350px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.ItemImg {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  margin: 10px;
+  padding: 10px;
 }
 
 .ItemFooter {
