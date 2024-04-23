@@ -1,0 +1,19 @@
+.ContainerItem {
+  width: 90%;
+  height: 350px;
+  margin: 15px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+/* .imgCart {
+  width: 100px;
+  height: 350px;
+} */
+
+.Title {
+  margin: 15px;
+  padding: 10px;
+  text-align: center;
+}
