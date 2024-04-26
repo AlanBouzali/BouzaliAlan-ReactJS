@@ -11,6 +11,7 @@ import {
   where,
 } from 'firebase/firestore';
 import { CheckoutForm } from '../CheckoutForm/CheckoutForm';
+import { getFirestore } from 'firebase/firestore';
 
 export const Checkout = () => {
   const [loading, setLoading] = useState(false);
@@ -20,6 +21,8 @@ export const Checkout = () => {
 
   const createOrder = async ({ name, phone, email }) => {
     setLoading(true);
+
+    const db = getFirestore();
 
     try {
       const objOrder = {
