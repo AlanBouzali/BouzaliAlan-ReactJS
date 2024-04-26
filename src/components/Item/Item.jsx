@@ -1,14 +1,14 @@
 import ClassItem from './Item.module.css';
 import { Link } from 'react-router-dom';
 
-const Item = ({ id, name, img, price, description, stock }) => {
+const Item = ({ id, title, imageId, price, description, stock }) => {
   return (
     <article className={ClassItem.CardItem}>
       <header className="Header">
-        <h2 className="ItemHeader">{name}</h2>
+        <h2 className="ItemHeader">{title}</h2>
       </header>
       <picture>
-        <img src={img} alt={name} className="ItemImg" />
+        <img src={imageId} alt={title} className="ItemImg" />
       </picture>
       <section>
         <p className="Info">Precio: ${price}</p>

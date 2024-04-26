@@ -5,7 +5,15 @@ import ItemCount from '../ItemCount/ItemCount.jsx';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../context/CartContext.jsx';
 
-const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
+const ItemDetail = ({
+  id,
+  title,
+  imageId,
+  categoryId,
+  description,
+  price,
+  stock,
+}) => {
   const [quantityAdded, setQuantityAdded] = useState(0);
 
   const { addItem } = useContext(CartContext);
@@ -15,9 +23,11 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
 
     const item = {
       id,
-      name,
+      title,
+      categoryId,
       price,
-      img,
+      imageId,
+      stock,
     };
 
     addItem(item, quantity);
@@ -26,15 +36,16 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
   return (
     <article className={ClassItem.CardItem}>
       <header className="Header">
-        <h2 className="ItemHeader">{name}</h2>
+        <h2 className="ItemHeader">{title}</h2>
       </header>
       <div className={ClassItem.ContainerDetail}>
         <picture>
-          <img src={img} alt={name} className={ClassItem.ItemImg} />
+          <img src={imageId} alt={title} className={ClassItem.ItemImg} />
         </picture>
         <section className="Description">
-          <p className="Info">Categoría: {category}</p>
+          <p className="Info">Categoría: {categoryId}</p>
           <p className="Info">Precio: ${price}</p>
+          <p className="Info">Stock: {stock}</p>
           <p className="Info">Descripción: {description}</p>
         </section>
       </div>

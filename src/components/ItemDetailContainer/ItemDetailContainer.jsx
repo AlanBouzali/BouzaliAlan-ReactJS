@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { getFirestore, getDoc, doc } from 'firebase/firestore';
 import '../ItemDetailContainer/DetailContainer.module.css';
 import { getProductById } from '../../asyncMock';
 import ItemDetail from '../ItemDetail/ItemDetail.jsx';
@@ -10,13 +11,21 @@ export const ItemDetailContainer = () => {
   const { itemId } = useParams();
 
   useEffect(() => {
-    getProductById(itemId)
+    const db = getFirestore();
+
+    const refDoc = doc(db, 'items', itemId);
+
+    getDoc(refDoc).then((snapshot) => {
+      setProduct({ id: snapshot.id, ...snapshot.data() });
+    });
+
+    /* getProductById(itemId)
       .then((response) => {
         setProduct(response);
       })
       .catch((error) => {
         console.error(error);
-      });
+      }); */
   }, [itemId]);
 
   return (
@@ -25,5 +34,3 @@ export const ItemDetailContainer = () => {
     </div>
   );
 };
-
-export default ItemDetailContainer;

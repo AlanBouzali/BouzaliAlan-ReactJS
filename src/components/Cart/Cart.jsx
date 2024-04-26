@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
 import { CartItem } from '../CartItem/CartItem';
 import { Link } from 'react-router-dom';
+import { CartForm } from '../CartForm/CartForm';
 
 export const Cart = () => {
   const { cart, clearCart, totalQuantity, calculateTotal, total } =
@@ -34,6 +35,10 @@ export const Cart = () => {
       <Link to="/checkout" className="Option">
         Checkout
       </Link>
+      {/* {<CartForm />}
+      <div>
+        <h2>form</h2>
+      </div> */}
     </div>
   );
 };

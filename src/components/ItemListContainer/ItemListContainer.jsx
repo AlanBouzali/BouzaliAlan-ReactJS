@@ -1,8 +1,16 @@
 import { useEffect, useState } from 'react';
 //import Container from 'react-bootstrap/Container';
-import { getProductsByCategory, getProducts } from '../../asyncMock';
+//import { getProductsByCategory, getProducts } from '../../asyncMock';
 import ItemList from '../ItemList/ItemList';
 import { useParams } from 'react-router-dom';
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  query,
+  where,
+  //limit,
+} from 'firebase/firestore';
 
 export const ItemListContainer = ({ greeting }) => {
   const [products, setProducts] = useState([]);
@@ -10,7 +18,32 @@ export const ItemListContainer = ({ greeting }) => {
   const { categoryId } = useParams();
 
   useEffect(() => {
-    const asyncFunc = categoryId ? getProductsByCategory : getProducts;
+    const db = getFirestore();
+
+    let refCollection;
+
+    if (!categoryId) {
+      refCollection = collection(db, 'items');
+    } else {
+      refCollection = query(
+        collection(db, 'items'),
+        where('categoryId', '==', categoryId)
+      );
+    }
+
+    getDocs(refCollection).then((snapshot) => {
+      if (snapshot.size === 0) console.log('no results');
+      else
+        setProducts(
+          snapshot.docs.map((doc) => {
+            return { id: doc.id, ...doc.data() };
+          })
+        );
+    });
+  }, [categoryId]);
+
+  //      codigo viejo
+  /* const asyncFunc = categoryId ? getProductsByCategory : getProducts;
 
     asyncFunc(categoryId)
       .then((response) => {
@@ -20,7 +53,7 @@ export const ItemListContainer = ({ greeting }) => {
         console.error(error);
       });
   }, [categoryId]);
-
+ */
   return (
     <div>
       <h1>{greeting}</h1>
