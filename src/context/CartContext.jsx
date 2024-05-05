@@ -14,7 +14,14 @@ export const CartProvider = ({ children }) => {
     if (!isInCart(item.id)) {
       setCart((prev) => [...prev, { ...item, quantity }]);
     } else {
-      console.error('El producto ya fue agregado!');
+      setCart((prev) =>
+        prev.map((prod) =>
+          prod.id === item.id
+            ? { ...prod, quantity: prod.quantity + quantity }
+            : prod
+        )
+      );
+      /* console.error('El producto ya fue agregado!'); */
     }
   };
 

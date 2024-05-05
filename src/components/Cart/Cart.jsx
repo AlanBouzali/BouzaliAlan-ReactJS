@@ -20,14 +20,12 @@ export const Cart = () => {
     );
   }
   console.log(total);
-  //console.log(calculateTotal);
   return (
     <div>
       {cart.map((p) => {
         console.log(p);
         return <CartItem key={p.id} {...p} />;
       })}
-      {/* {cart.map((p) => console.log(p) return (<CartItem key={p.id} {...p} />))} */}
       <h3>Total: ${total}</h3>
       <button onClick={() => clearCart()} className="Button">
         Limpiar carrito
@@ -35,10 +33,6 @@ export const Cart = () => {
       <Link to="/checkout" className="Option">
         Checkout
       </Link>
-      {/* {<CartForm />}
-      <div>
-        <h2>form</h2>
-      </div> */}
     </div>
   );
 };

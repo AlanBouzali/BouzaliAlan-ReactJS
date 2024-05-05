@@ -12,7 +12,6 @@ import {
 } from 'firebase/firestore';
 import { CheckoutForm } from '../CheckoutForm/CheckoutForm';
 import { getFirestore } from 'firebase/firestore';
-
 export const Checkout = () => {
   const [loading, setLoading] = useState(false);
   const [orderId, steOrderId] = useState('');

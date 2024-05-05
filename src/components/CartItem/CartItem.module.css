@@ -3,8 +3,12 @@
   height: 350px;
   margin: 15px;
   padding: 10px;
+  border: 2px solid black;
+  border-radius: 5px;
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 /* .imgCart {
@@ -16,4 +20,9 @@
   margin: 15px;
   padding: 10px;
   text-align: center;
+}
+
+.ContainerItem img {
+  width: 250px;
+  height: 250px;
 }
