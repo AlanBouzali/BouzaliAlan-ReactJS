@@ -2,13 +2,11 @@ import { createContext, useState } from 'react';
 
 export const CartContext = createContext({
   cart: [],
-  totalQuantity: 0, //agregado
+  totalQuantity: 0,
 });
 
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
-
-  console.log(cart);
 
   const addItem = (item, quantity) => {
     if (!isInCart(item.id)) {
@@ -21,7 +19,6 @@ export const CartProvider = ({ children }) => {
             : prod
         )
       );
-      /* console.error('El producto ya fue agregado!'); */
     }
   };
 
@@ -47,9 +44,7 @@ export const CartProvider = ({ children }) => {
     return total;
   };
   calculateTotal();
-  console.log(total);
 
-  //agregado
   const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
 
   return (

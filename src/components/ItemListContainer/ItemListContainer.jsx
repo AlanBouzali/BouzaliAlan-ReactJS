@@ -1,6 +1,4 @@
 import { useEffect, useState } from 'react';
-//import Container from 'react-bootstrap/Container';
-//import { getProductsByCategory, getProducts } from '../../asyncMock';
 import ItemList from '../ItemList/ItemList';
 import { useParams } from 'react-router-dom';
 import {
@@ -9,7 +7,6 @@ import {
   getDocs,
   query,
   where,
-  //limit,
 } from 'firebase/firestore';
 
 export const ItemListContainer = ({ greeting }) => {
@@ -42,18 +39,6 @@ export const ItemListContainer = ({ greeting }) => {
     });
   }, [categoryId]);
 
-  //      codigo viejo
-  /* const asyncFunc = categoryId ? getProductsByCategory : getProducts;
-
-    asyncFunc(categoryId)
-      .then((response) => {
-        setProducts(response);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, [categoryId]);
- */
   return (
     <div>
       <h1>{greeting}</h1>

@@ -19,11 +19,9 @@ export const Cart = () => {
       </div>
     );
   }
-  console.log(total);
   return (
     <div>
       {cart.map((p) => {
-        console.log(p);
         return <CartItem key={p.id} {...p} />;
       })}
       <h3>Total: ${total}</h3>

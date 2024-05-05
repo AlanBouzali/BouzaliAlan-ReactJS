@@ -57,13 +57,6 @@ const ItemDetail = ({
         ) : (
           <ItemCount id={id} initial={1} stock={stock} onAdd={handleOnAdd} />
         )}
-        {/*   <p className="Info">Stock disponible: {stock}</p>
-        <ItemCount
-          id={id}
-          initial={1}
-          stock={stock}
-          onAdd={(quantity) => console.log('Cantidad agregada ', quantity)}
-        /> */}
       </footer>
     </article>
   );
