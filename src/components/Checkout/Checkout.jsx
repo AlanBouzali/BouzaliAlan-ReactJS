@@ -95,6 +95,18 @@ export const Checkout = () => {
     <div>
       <h1>Checkout</h1>
       {/* agregar el pfd de compra */}
+      <div>
+        <h2>Detalles de la compra:</h2>
+        {cart.map((product) => (
+          <div key={product.id}>
+            <p>
+              {product.title} - Cantidad: {product.quantity} - Precio unitario:
+              ${product.price}
+            </p>
+          </div>
+        ))}
+        <p>Total: ${total}</p>
+      </div>
       <CheckoutForm onConfirm={createOrder} />
     </div>
   );
