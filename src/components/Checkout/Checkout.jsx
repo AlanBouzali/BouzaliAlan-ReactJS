@@ -93,6 +93,7 @@ export const Checkout = () => {
   return (
     <div>
       <h1>Checkout</h1>
+      {/* agregar el pfd de compra */}
       <CheckoutForm onConfirm={createOrder} />
     </div>
   );
